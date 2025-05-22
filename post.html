@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Explorando o Linux Mint</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    blockquote {
+      background: #f9f9f9;
+      border-left: 10px solid #ccc;
+      margin: 1.5em 10px;
+      padding: 0.5em 10px;
+      color: #555;
+    }
+    hr {
+      margin: 40px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🐧 Explorando o Linux Mint: leve, acessível e poderoso</h1>
+
+  <blockquote>
+    O Linux Mint é uma das distribuições Linux mais queridinhas do mundo open source — e não é à toa. Com uma interface amigável, desempenho sólido e base sólida no Ubuntu, ele é o queridinho tanto de iniciantes quanto de usuários mais experientes. Neste post, vamos dar um mergulho nas características técnicas do Linux Mint, abordando sua arquitetura, gerenciamento de processos, sistema de arquivos e mais.
+  </blockquote>
+
+  <hr>
+
+  <h2>🧱 1. Arquitetura do Sistema Operacional</h2>
+  <p>O Linux Mint utiliza uma <strong>arquitetura monolítica</strong>, o que significa que o núcleo (kernel) do sistema é um único bloco grande que gerencia os recursos do hardware diretamente...</p>
+  <ul>
+    <li><strong>Kernel</strong>: o coração do sistema, baseado no kernel Linux.</li>
+    <li><strong>Shell</strong>: o interpretador de comandos (bash é o padrão no terminal).</li>
+    <li><strong>Interface gráfica</strong>: Cinnamon, MATE ou Xfce.</li>
+    <li><strong>Gerenciador de pacotes</strong>: <code>APT</code> e Synaptic.</li>
+    <li><strong>Sistema de arquivos</strong>: ext4, FAT32, NTFS.</li>
+  </ul>
+
+  <hr>
+
+  <h2>🔄 2. Gerenciamento de Processos</h2>
+  <p>O Linux Mint gerencia processos através do <strong>kernel Linux</strong>, usando a estrutura <strong>PCB</strong>...</p>
+  <h3>Escalonamento:</h3>
+  <p>Usa o <strong>Completely Fair Scheduler (CFS)</strong> com políticas:</p>
+  <ul>
+    <li><code>SCHED_FIFO</code></li>
+    <li><code>SCHED_RR</code></li>
+    <li><code>SCHED_OTHER</code></li>
+  </ul>
+  <h3>Context Switching:</h3>
+  <p>Troca de contexto permite multitarefa real.</p>
+
+  <hr>
+
+  <h2>🧠 3. Gerenciamento de Memória</h2>
+  <p>O Mint gerencia memória com paginação, memória virtual e alocação dinâmica. Usa <strong>swap</strong> quando necessário.</p>
+  <h3>Page Swapping:</h3>
+  <p>Páginas pouco usadas vão pro disco, liberando RAM.</p>
+
+  <hr>
+
+  <h2>📂 4. Sistema de Arquivos</h2>
+  <p>Padrão: <strong>ext4</strong>. Oferece desempenho, confiabilidade e suporte a arquivos grandes.</p>
+  <h3>Estrutura:</h3>
+  <ul>
+    <li>Diretórios: <code>/</code>, <code>/home</code>, <code>/etc</code>, etc.</li>
+    <li>Inodes: armazenam metadados.</li>
+    <li>Suporte: ext2, ext3, ext4, FAT32, exFAT, NTFS.</li>
+  </ul>
+
+  <hr>
+
+  <h2>🔐 5. Segurança e Permissões</h2>
+  <p>Modelo Unix: permissões para <strong>usuário</strong>, <strong>grupo</strong> e <strong>outros</strong>, com leitura, escrita e execução.</p>
+  <ul>
+    <li><strong>DAC</strong>: controle de acesso discricionário.</li>
+    <li>Autenticação via senha (com criptografia).</li>
+    <li>Privilégios elevados com <code>sudo</code>.</li>
+  </ul>
+
+  <hr>
+
+  <h2>💻 6. Interface de Usuário (UI)</h2>
+  <p>Oferece interface gráfica intuitiva + terminal para usuários avançados.</p>
+  <ul>
+    <li><strong>Cinnamon</strong>: moderno.</li>
+    <li><strong>MATE</strong>: leve.</li>
+    <li><strong>Xfce</strong>: ultra leve.</li>
+  </ul>
+
+  <hr>
+
+  <h2>✨ Conclusão</h2>
+  <p>O Linux Mint é completo, seguro e amigável. Ótimo pra uso pessoal ou profissional.</p>
+
+  <hr>
+
+  <h2>📚 Referências</h2>
+  <ul>
+    <li><a href="https://linuxmint.com/documentation.php">Linux Mint Official Documentation</a></li>
+    <li><a href="https://help.ubuntu.com/">Ubuntu Manual</a></li>
+    <li><a href="https://www.kernel.org/doc/html/latest/">Kernel.org</a></li>
+    <li><a href="https://www.gnu.org/">GNU Project</a></li>
+    <li><em>How Linux Works</em> — Brian Ward</li>
+    <li><em>The Linux Command Line</em> — William Shotts</li>
+  </ul>
+
+  <hr>
+
+  <h2>💿 Quer instalar o Linux Mint?</h2>
+  <p>👉 <a href="./tutoriais/tutorial-linux-mint.html">Clique aqui para ver o tutorial completo de instalação</a></p>
+
+</body>
+</html>
