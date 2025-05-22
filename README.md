@@ -92,3 +92,10 @@ O Linux Mint é uma excelente escolha para quem quer um sistema operacional grat
 - GNU Project: https://www.gnu.org/  
 - How Linux Works: What Every Superuser Should Know — Brian Ward  
 - The Linux Command Line — William Shotts
+
+
+## 💿 Quer instalar o Linux Mint?
+
+👉 [Clique aqui para ver o tutorial completo de instalação](./tutoriais/tutorial-linux-mint.md)
+
+---
