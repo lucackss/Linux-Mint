@@ -84,4 +84,11 @@ No **Linux/macOS**, use o [Balena Etcher](https://www.balena.io/etcher/).
 
 ---
 
+## 🎥 Tutorial em Vídeo
+
+Se preferir assistir ao passo a passo, veja o vídeo abaixo:
+
+[![Assista no YouTube](https://img.youtube.com/vi/https://youtu.be/D5OPWzS29zM/maxresdefault.jpg)](https://www.youtube.com/watch?v=SEU_ID_DO_VIDEO)
+
+
 [⬅️ Voltar ao post principal](../_posts/linux-mint.md)
