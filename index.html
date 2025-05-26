@@ -4,46 +4,47 @@
   <meta charset="UTF-8">
   <title>Projeto Linux Mint</title>
   <style>
-    body {
-  background-color: #000;
+   body {
   margin: 0;
   padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-family: sans-serif;
   color: white;
+  background: linear-gradient(135deg, #000000, #1a1a1a); /* degrade preto moderno */
+}
+    
+img {
+  width: 120px;
+  margin-bottom: 20px;
 }
 
-    h1 {
-      font-size: 3.5em;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 5px #000;
-    }
+h1 {
+  font-size: 2.5em;
+  margin: 10px 0;
+}
 
-    p {
-      font-size: 1.5em;
-      margin-bottom: 30px;
-      text-shadow: 1px 1px 3px #000;
-    }
+p {
+  margin: 5px 0 20px;
+}
 
-    .botao {
-      background-color: #2ecc71;
-      border: none;
-      color: white;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
+a.botao {
+  background-color: #2ecc71;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
 
-    .botao:hover {
-      background-color: #27ae60;
-    }
+a.botao:hover {
+  background-color: #27ae60;
+}
 
-    img {
-      width: 180px;
-      margin-bottom: 20px;
-      filter: drop-shadow(0 0 5px black);
     }
   </style>
 </head>
