@@ -39,48 +39,48 @@
 </head>
 <body>
 
-&lt;h1>🐧 Explorando o Linux Mint: leve, acessível e poderoso&lt;/h1>
+h1>🐧 Explorando o Linux Mint: leve, acessível e poderoso&lt;/h1>
 
-&lt;blockquote>
+blockquote>
     O Linux Mint é uma das distribuições Linux mais queridinhas do mundo open source — e não é à toa. Com uma interface amigável, desempenho sólido e base sólida no Ubuntu, ele é o queridinho tanto de iniciantes quanto de usuários mais experientes. Neste post, vamos dar um mergulho nas características técnicas do Linux Mint, abordando sua arquitetura, gerenciamento de processos, sistema de arquivos e mais.
-  &lt;/blockquote>
+  /blockquote>
 
-&lt;hr>
+hr>
 
-&lt;h2>🧱 1. Arquitetura do Sistema Operacional&lt;/h2>
-  &lt;p>O Linux Mint utiliza uma &lt;strong>arquitetura monolítica modular&lt;/strong> para seu kernel. Isso significa que o núcleo (kernel) do sistema é um único bloco grande que gerencia os recursos do hardware diretamente, mas pode carregar ou descarregar módulos (como drivers) dinamicamente, oferecendo flexibilidade.&lt;/p>
-  &lt;ul>
-    &lt;li>&lt;strong>Kernel&lt;/strong>: O coração do sistema, baseado no kernel Linux (frequentemente versões LTS - Long Term Support, para maior estabilidade). É responsável pela interface de baixo nível com o hardware, gerenciamento de memória e processos.&lt;/li>
-    &lt;li>&lt;strong>Shell&lt;/strong>: O interpretador de comandos (&lt;strong>bash&lt;/strong> é o padrão no terminal) que permite a interação textual com o sistema e a automação de tarefas via scripts.&lt;/li>
-    &lt;li>&lt;strong>Interface gráfica&lt;/strong>: Ambientes de desktop como &lt;strong>Cinnamon&lt;/strong> (rico em recursos e moderno), &lt;strong>MATE&lt;/strong> (clássico e leve, fork do GNOME 2) ou &lt;strong>Xfce&lt;/strong> (extremamente leve e modular), que fornecem a interatividade visual.&lt;/li>
-    &lt;li>&lt;strong>Gerenciador de pacotes&lt;/strong>: Utiliza o &lt;strong>&lt;code>APT&lt;/code>&lt;/strong> (Advanced Package Tool) para gerenciamento de software via linha de comando e o &lt;strong>Synaptic&lt;/strong> como uma interface gráfica para o APT, além do seu próprio Gerenciador de Aplicativos amigável.&lt;/li>
-    &lt;li>&lt;strong>Sistema de arquivos&lt;/strong>: Principalmente o &lt;strong>ext4&lt;/strong> como padrão, conhecido pela robustez e journaling, mas com suporte nativo a outros como &lt;strong>FAT32&lt;/strong> (para pendrives) e &lt;strong>NTFS&lt;/strong> (para interoperabilidade com Windows).&lt;/li>
-  &lt;/ul>
+h2>🧱 1. Arquitetura do Sistema Operacional&lt;/h2>
+  p>O Linux Mint utiliza uma &lt;strong>arquitetura monolítica modular&lt;/strong> para seu kernel. Isso significa que o núcleo (kernel) do sistema é um único bloco grande que gerencia os recursos do hardware diretamente, mas pode carregar ou descarregar módulos (como drivers) dinamicamente, oferecendo flexibilidade.&lt;/p>
+  ul>
+    li>&lt;strong>Kernel&lt;/strong>: O coração do sistema, baseado no kernel Linux (frequentemente versões LTS - Long Term Support, para maior estabilidade). É responsável pela interface de baixo nível com o hardware, gerenciamento de memória e processos.&lt;/li>
+    li>&lt;strong>Shell&lt;/strong>: O interpretador de comandos (&lt;strong>bash&lt;/strong> é o padrão no terminal) que permite a interação textual com o sistema e a automação de tarefas via scripts.&lt;/li>
+    li>&lt;strong>Interface gráfica&lt;/strong>: Ambientes de desktop como &lt;strong>Cinnamon&lt;/strong> (rico em recursos e moderno), &lt;strong>MATE&lt;/strong> (clássico e leve, fork do GNOME 2) ou &lt;strong>Xfce&lt;/strong> (extremamente leve e modular), que fornecem a interatividade visual.&lt;/li>
+    li>&lt;strong>Gerenciador de pacotes&lt;/strong>: Utiliza o &lt;strong>&lt;code>APT&lt;/code>&lt;/strong> (Advanced Package Tool) para gerenciamento de software via linha de comando e o &lt;strong>Synaptic&lt;/strong> como uma interface gráfica para o APT, além do seu próprio Gerenciador de Aplicativos amigável.&lt;/li>
+    li>&lt;strong>Sistema de arquivos&lt;/strong>: Principalmente o &lt;strong>ext4&lt;/strong> como padrão, conhecido pela robustez e journaling, mas com suporte nativo a outros como &lt;strong>FAT32&lt;/strong> (para pendrives) e &lt;strong>NTFS&lt;/strong> (para interoperabilidade com Windows).&lt;/li>
+  /ul>
 
-&lt;hr>
+hr>
 
-&lt;h2>🔄 2. Gerenciamento de Processos&lt;/h2>
-  &lt;p>O Linux Mint gerencia processos através do &lt;strong>kernel Linux&lt;/strong>, usando a estrutura &lt;strong>PCB (Process Control Block)&lt;/strong>, ou &lt;code>task_struct&lt;/code> no Linux, para armazenar todas as informações de cada processo (ID, estado, prioridade, registradores, etc.).&lt;/p>
-  &lt;h3>Escalonamento:&lt;/h3>
-  &lt;p>Usa o &lt;strong>Completely Fair Scheduler (CFS)&lt;/strong> como escalonador padrão para processos de tempo normal, visando distribuir o tempo da CPU de forma justa. Suporta também políticas para tempo real:&lt;/p>
-  &lt;ul>
-    &lt;li>&lt;code>SCHED_FIFO&lt;/code>: Executa processos de tempo real na ordem de chegada, sem preempção por outros de mesma prioridade.&lt;/li>
-    &lt;li>&lt;code>SCHED_RR&lt;/code>: Similar ao FIFO, mas com fatias de tempo (quantum) para processos de mesma prioridade.&lt;/li>
-    &lt;li>&lt;code>SCHED_OTHER&lt;/code>: Política para processos normais, gerenciada pelo CFS.&lt;/li>
-  &lt;/ul>
-  &lt;h3>Context Switching (Troca de Contexto):&lt;/h3>
-  &lt;p>A troca de contexto, realizada pelo kernel, salva o estado do processo atual e carrega o de outro, permitindo a multitarefa preemptiva e a sensação de execução simultânea de vários programas.&lt;/p>
+h2>🔄 2. Gerenciamento de Processos&lt;/h2>
+  p>O Linux Mint gerencia processos através do &lt;strong>kernel Linux&lt;/strong>, usando a estrutura &lt;strong>PCB (Process Control Block)&lt;/strong>, ou &lt;code>task_struct&lt;/code> no Linux, para armazenar todas as informações de cada processo (ID, estado, prioridade, registradores, etc.).&lt;/p>
+  h3>Escalonamento:&lt;/h3>
+  p>Usa o &lt;strong>Completely Fair Scheduler (CFS)&lt;/strong> como escalonador padrão para processos de tempo normal, visando distribuir o tempo da CPU de forma justa. Suporta também políticas para tempo real:&lt;/p>
+  ul>
+    li>&lt;code>SCHED_FIFO&lt;/code>: Executa processos de tempo real na ordem de chegada, sem preempção por outros de mesma prioridade.&lt;/li>
+    li>&lt;code>SCHED_RR&lt;/code>: Similar ao FIFO, mas com fatias de tempo (quantum) para processos de mesma prioridade.&lt;/li>
+    li>&lt;code>SCHED_OTHER&lt;/code>: Política para processos normais, gerenciada pelo CFS.&lt;/li>
+  /ul>
+  h3>Context Switching (Troca de Contexto):&lt;/h3>
+  p>A troca de contexto, realizada pelo kernel, salva o estado do processo atual e carrega o de outro, permitindo a multitarefa preemptiva e a sensação de execução simultânea de vários programas.&lt;/p>
 
-&lt;hr>
+hr>
 
-&lt;h2>🧠 3. Gerenciamento de Memória&lt;/h2>
-  &lt;p>O Mint gerencia memória com &lt;strong>paginação&lt;/strong> (dividindo a memória em blocos de tamanho fixo), &lt;strong>memória virtual&lt;/strong> (usando disco para estender a RAM) e &lt;strong>alocação dinâmica&lt;/strong> (permitindo que processos solicitem e liberem memória conforme necessário). Utiliza &lt;strong>swap&lt;/strong> (espaço em disco) quando a memória RAM física é insuficiente.&lt;/p>
-  &lt;h3>Page Swapping (Troca de Páginas):&lt;/h3>
-  &lt;p>No page swapping, páginas de memória menos utilizadas são movidas da RAM para o disco (swap space), liberando RAM para processos ativos. O inverso ocorre quando a página no disco é requisitada.&lt;/p>
+h2>🧠 3. Gerenciamento de Memória&lt;/h2>
+  p>O Mint gerencia memória com &lt;strong>paginação&lt;/strong> (dividindo a memória em blocos de tamanho fixo), &lt;strong>memória virtual&lt;/strong> (usando disco para estender a RAM) e &lt;strong>alocação dinâmica&lt;/strong> (permitindo que processos solicitem e liberem memória conforme necessário). Utiliza &lt;strong>swap&lt;/strong> (espaço em disco) quando a memória RAM física é insuficiente.&lt;/p>
+  h3>Page Swapping (Troca de Páginas):&lt;/h3>
+  p>No page swapping, páginas de memória menos utilizadas são movidas da RAM para o disco (swap space), liberando RAM para processos ativos. O inverso ocorre quando a página no disco é requisitada.&lt;/p>
 
-&lt;hr>
+hr>
 
-&lt;h2>📂 4. Sistema de Arquivos&lt;/h2>
+h2>📂 4. Sistema de Arquivos&lt;/h2>
   &lt;p>O sistema de arquivos padrão é o &lt;strong>ext4&lt;/strong>, que oferece ótimo desempenho, confiabilidade (devido ao journaling, que ajuda a prevenir corrupção de dados) e suporte a arquivos e volumes grandes.&lt;/p>
   &lt;h3>Estrutura:&lt;/h3>
   &lt;p>Segue a hierarquia padrão do Linux, começando pela raiz &lt;code>/&lt;/code>, com diretórios padronizados como:&lt;/p>
