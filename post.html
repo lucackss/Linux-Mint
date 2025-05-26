@@ -39,97 +39,102 @@
 </head>
 <body>
 
-  <h1>🐧 Explorando o Linux Mint: leve, acessível e poderoso</h1>
+&lt;h1>🐧 Explorando o Linux Mint: leve, acessível e poderoso&lt;/h1>
 
-  <blockquote>
-    O Linux Mint é uma das distribuições Linux mais queridinhas do mundo open source — e não é à toa. Com uma interface amigável, desempenho sólido e base sólida no Ubuntu, ele é o queridinho tanto de iniciantes quanto de usuários mais experientes. Neste post, vamos dar um mergulho nas características técnicas do Linux Mint, abordando sua arquitetura, gerenciamento de processos, sistema de arquivos e mais.
-  </blockquote>
+&lt;blockquote>
+    O Linux Mint é uma das distribuições Linux mais queridinhas do mundo open source — e não é à toa. Com uma interface amigável, desempenho sólido e base sólida no Ubuntu, ele é o queridinho tanto de iniciantes quanto de usuários mais experientes. Neste post, vamos dar um mergulho nas características técnicas do Linux Mint, abordando sua arquitetura, gerenciamento de processos, sistema de arquivos e mais.
+  &lt;/blockquote>
 
-  <hr>
+&lt;hr>
 
-  <h2>🧱 1. Arquitetura do Sistema Operacional</h2>
-  <p>O Linux Mint utiliza uma <strong>arquitetura monolítica</strong>, o que significa que o núcleo (kernel) do sistema é um único bloco grande que gerencia os recursos do hardware diretamente...</p>
-  <ul>
-    <li><strong>Kernel</strong>: o coração do sistema, baseado no kernel Linux.</li>
-    <li><strong>Shell</strong>: o interpretador de comandos (bash é o padrão no terminal).</li>
-    <li><strong>Interface gráfica</strong>: Cinnamon, MATE ou Xfce.</li>
-    <li><strong>Gerenciador de pacotes</strong>: <code>APT</code> e Synaptic.</li>
-    <li><strong>Sistema de arquivos</strong>: ext4, FAT32, NTFS.</li>
-  </ul>
+&lt;h2>🧱 1. Arquitetura do Sistema Operacional&lt;/h2>
+  &lt;p>O Linux Mint utiliza uma &lt;strong>arquitetura monolítica modular&lt;/strong> para seu kernel. Isso significa que o núcleo (kernel) do sistema é um único bloco grande que gerencia os recursos do hardware diretamente, mas pode carregar ou descarregar módulos (como drivers) dinamicamente, oferecendo flexibilidade.&lt;/p>
+  &lt;ul>
+    &lt;li>&lt;strong>Kernel&lt;/strong>: O coração do sistema, baseado no kernel Linux (frequentemente versões LTS - Long Term Support, para maior estabilidade). É responsável pela interface de baixo nível com o hardware, gerenciamento de memória e processos.&lt;/li>
+    &lt;li>&lt;strong>Shell&lt;/strong>: O interpretador de comandos (&lt;strong>bash&lt;/strong> é o padrão no terminal) que permite a interação textual com o sistema e a automação de tarefas via scripts.&lt;/li>
+    &lt;li>&lt;strong>Interface gráfica&lt;/strong>: Ambientes de desktop como &lt;strong>Cinnamon&lt;/strong> (rico em recursos e moderno), &lt;strong>MATE&lt;/strong> (clássico e leve, fork do GNOME 2) ou &lt;strong>Xfce&lt;/strong> (extremamente leve e modular), que fornecem a interatividade visual.&lt;/li>
+    &lt;li>&lt;strong>Gerenciador de pacotes&lt;/strong>: Utiliza o &lt;strong>&lt;code>APT&lt;/code>&lt;/strong> (Advanced Package Tool) para gerenciamento de software via linha de comando e o &lt;strong>Synaptic&lt;/strong> como uma interface gráfica para o APT, além do seu próprio Gerenciador de Aplicativos amigável.&lt;/li>
+    &lt;li>&lt;strong>Sistema de arquivos&lt;/strong>: Principalmente o &lt;strong>ext4&lt;/strong> como padrão, conhecido pela robustez e journaling, mas com suporte nativo a outros como &lt;strong>FAT32&lt;/strong> (para pendrives) e &lt;strong>NTFS&lt;/strong> (para interoperabilidade com Windows).&lt;/li>
+  &lt;/ul>
 
-  <hr>
+&lt;hr>
 
-  <h2>🔄 2. Gerenciamento de Processos</h2>
-  <p>O Linux Mint gerencia processos através do <strong>kernel Linux</strong>, usando a estrutura <strong>PCB</strong>...</p>
-  <h3>Escalonamento:</h3>
-  <p>Usa o <strong>Completely Fair Scheduler (CFS)</strong> com políticas:</p>
-  <ul>
-    <li><code>SCHED_FIFO</code></li>
-    <li><code>SCHED_RR</code></li>
-    <li><code>SCHED_OTHER</code></li>
-  </ul>
-  <h3>Context Switching:</h3>
-  <p>Troca de contexto permite multitarefa real.</p>
+&lt;h2>🔄 2. Gerenciamento de Processos&lt;/h2>
+  &lt;p>O Linux Mint gerencia processos através do &lt;strong>kernel Linux&lt;/strong>, usando a estrutura &lt;strong>PCB (Process Control Block)&lt;/strong>, ou &lt;code>task_struct&lt;/code> no Linux, para armazenar todas as informações de cada processo (ID, estado, prioridade, registradores, etc.).&lt;/p>
+  &lt;h3>Escalonamento:&lt;/h3>
+  &lt;p>Usa o &lt;strong>Completely Fair Scheduler (CFS)&lt;/strong> como escalonador padrão para processos de tempo normal, visando distribuir o tempo da CPU de forma justa. Suporta também políticas para tempo real:&lt;/p>
+  &lt;ul>
+    &lt;li>&lt;code>SCHED_FIFO&lt;/code>: Executa processos de tempo real na ordem de chegada, sem preempção por outros de mesma prioridade.&lt;/li>
+    &lt;li>&lt;code>SCHED_RR&lt;/code>: Similar ao FIFO, mas com fatias de tempo (quantum) para processos de mesma prioridade.&lt;/li>
+    &lt;li>&lt;code>SCHED_OTHER&lt;/code>: Política para processos normais, gerenciada pelo CFS.&lt;/li>
+  &lt;/ul>
+  &lt;h3>Context Switching (Troca de Contexto):&lt;/h3>
+  &lt;p>A troca de contexto, realizada pelo kernel, salva o estado do processo atual e carrega o de outro, permitindo a multitarefa preemptiva e a sensação de execução simultânea de vários programas.&lt;/p>
 
-  <hr>
+&lt;hr>
 
-  <h2>🧠 3. Gerenciamento de Memória</h2>
-  <p>O Mint gerencia memória com paginação, memória virtual e alocação dinâmica. Usa <strong>swap</strong> quando necessário.</p>
-  <h3>Page Swapping:</h3>
-  <p>Páginas pouco usadas vão pro disco, liberando RAM.</p>
+&lt;h2>🧠 3. Gerenciamento de Memória&lt;/h2>
+  &lt;p>O Mint gerencia memória com &lt;strong>paginação&lt;/strong> (dividindo a memória em blocos de tamanho fixo), &lt;strong>memória virtual&lt;/strong> (usando disco para estender a RAM) e &lt;strong>alocação dinâmica&lt;/strong> (permitindo que processos solicitem e liberem memória conforme necessário). Utiliza &lt;strong>swap&lt;/strong> (espaço em disco) quando a memória RAM física é insuficiente.&lt;/p>
+  &lt;h3>Page Swapping (Troca de Páginas):&lt;/h3>
+  &lt;p>No page swapping, páginas de memória menos utilizadas são movidas da RAM para o disco (swap space), liberando RAM para processos ativos. O inverso ocorre quando a página no disco é requisitada.&lt;/p>
 
-  <hr>
+&lt;hr>
 
-  <h2>📂 4. Sistema de Arquivos</h2>
-  <p>Padrão: <strong>ext4</strong>. Oferece desempenho, confiabilidade e suporte a arquivos grandes.</p>
-  <h3>Estrutura:</h3>
-  <ul>
-    <li>Diretórios: <code>/</code>, <code>/home</code>, <code>/etc</code>, etc.</li>
-    <li>Inodes: armazenam metadados.</li>
-    <li>Suporte: ext2, ext3, ext4, FAT32, exFAT, NTFS.</li>
-  </ul>
+&lt;h2>📂 4. Sistema de Arquivos&lt;/h2>
+  &lt;p>O sistema de arquivos padrão é o &lt;strong>ext4&lt;/strong>, que oferece ótimo desempenho, confiabilidade (devido ao journaling, que ajuda a prevenir corrupção de dados) e suporte a arquivos e volumes grandes.&lt;/p>
+  &lt;h3>Estrutura:&lt;/h3>
+  &lt;p>Segue a hierarquia padrão do Linux, começando pela raiz &lt;code>/&lt;/code>, com diretórios padronizados como:&lt;/p>
 
-  <hr>
+&lt;ul>
+    &lt;li>&lt;code>/&lt;/code> (raiz), &lt;code>/home&lt;/code> (diretórios dos usuários), &lt;code>/etc&lt;/code> (configurações), &lt;code>/bin&lt;/code> (binários essenciais), &lt;code>/usr&lt;/code> (programas e dados de usuários), &lt;code>/var&lt;/code> (dados variáveis como logs).&lt;/li>
+    &lt;li>&lt;strong>Inodes&lt;/strong>: Estruturas de dados que armazenam metadados cruciais sobre arquivos e diretórios (permissões, dono, tamanho, ponteiros para os blocos de dados), mas não o nome do arquivo (que fica no diretório).&lt;/li>
+    &lt;li>&lt;strong>Suporte&lt;/strong>: Além do ext2, ext3, ext4, há excelente suporte para &lt;strong>FAT32&lt;/strong> e &lt;strong>exFAT&lt;/strong> (para dispositivos externos e portabilidade) e &lt;strong>NTFS&lt;/strong> (para acesso a partições Windows).&lt;/li>
+  &lt;/ul>
 
-  <h2>🔐 5. Segurança e Permissões</h2>
-  <p>Modelo Unix: permissões para <strong>usuário</strong>, <strong>grupo</strong> e <strong>outros</strong>, com leitura, escrita e execução.</p>
-  <ul>
-    <li><strong>DAC</strong>: controle de acesso discricionário.</li>
-    <li>Autenticação via senha (com criptografia).</li>
-    <li>Privilégios elevados com <code>sudo</code>.</li>
-  </ul>
+&lt;hr>
 
-  <hr>
+&lt;h2>🔐 5. Segurança e Permissões&lt;/h2>
+  &lt;p>Baseia-se no modelo Unix: permissões para &lt;strong>usuário&lt;/strong> (dono), &lt;strong>grupo&lt;/strong> e &lt;strong>outros&lt;/strong>, com direitos de &lt;strong>leitura (r)&lt;/strong>, &lt;strong>escrita (w)&lt;/strong> e &lt;strong>execução (x)&lt;/strong> para cada arquivo e diretório.&lt;/p>
+  &lt;ul>
+    &lt;li>&lt;strong>DAC (Discretionary Access Control - Controle de Acesso Discricionário)&lt;/strong>: O proprietário do arquivo tem a discrição de definir suas permissões.&lt;/li>
+    &lt;li>&lt;strong>Autenticação&lt;/strong>: Primariamente via senha (armazenadas de forma criptografada com hashing e salt no arquivo &lt;code>/etc/shadow&lt;/code>, acessível apenas pelo root).&lt;/li>
+    &lt;li>&lt;strong>Privilégios elevados com &lt;code>sudo&lt;/code>&lt;/strong>: Permite que usuários autorizados executem comandos como superusuário (root) de forma controlada e segura, sem precisar logar diretamente como root.&lt;/li>
+&lt;li>&lt;strong>Firewall&lt;/strong>: UFW (Uncomplicated Firewall) geralmente está disponível como uma interface amigável para o iptables.&lt;/li>
+  &lt;/ul>
 
-  <h2>💻 6. Interface de Usuário (UI)</h2>
-  <p>Oferece interface gráfica intuitiva + terminal para usuários avançados.</p>
-  <ul>
-    <li><strong>Cinnamon</strong>: moderno.</li>
-    <li><strong>MATE</strong>: leve.</li>
-    <li><strong>Xfce</strong>: ultra leve.</li>
-  </ul>
+&lt;hr>
 
-  <hr>
+&lt;h2>💻 6. Interface de Usuário (UI)&lt;/h2>
+  &lt;p>Oferece uma interface gráfica intuitiva e amigável, além do acesso ao poderoso terminal para usuários avançados. As principais opções de ambiente de desktop são:&lt;/p>
+  &lt;ul>
+    &lt;li>&lt;strong>Cinnamon&lt;/strong>: Interface moderna, elegante e rica em recursos, desenvolvida pelo próprio Mint.&lt;/li>
+    &lt;li>&lt;strong>MATE&lt;/strong>: Experiência de desktop clássica, leve e estável, mantendo a tradição do GNOME 2.&lt;/li>
+    &lt;li>&lt;strong>Xfce&lt;/strong>: Extremamente leve, rápido e altamente personalizável, ideal para hardware mais modesto ou para quem busca máxima performance.&lt;/li>
+  &lt;/ul>
 
-  <h2>✨ Conclusão</h2>
-  <p>O Linux Mint é completo, seguro e amigável. Ótimo pra uso pessoal ou profissional.</p>
+&lt;p>Todas as opções são complementadas por um conjunto de ferramentas próprias do Mint (MintTools) que facilitam a configuração e o uso do sistema.&lt;/p>
 
-  <hr>
+&lt;hr>
 
-  <h2>📚 Referências</h2>
-  <ul>
-    <li><a href="https://linuxmint.com/documentation.php">Linux Mint Official Documentation</a></li>
-    <li><a href="https://help.ubuntu.com/">Ubuntu Manual</a></li>
-    <li><a href="https://www.kernel.org/doc/html/latest/">Kernel.org</a></li>
-    <li><a href="https://www.gnu.org/">GNU Project</a></li>
-    <li><em>How Linux Works</em> — Brian Ward</li>
-    <li><em>The Linux Command Line</em> — William Shotts</li>
-  </ul>
+&lt;h2>✨ Conclusão&lt;/h2>
+  &lt;p>O Linux Mint é completo, seguro e amigável. Ótimo pra uso pessoal ou profissional, destacando-se pela facilidade de uso e estabilidade, sendo uma excelente porta de entrada para o mundo Linux sem abrir mão de recursos avançados.&lt;/p>
 
-  <hr>
+&lt;hr>
 
-  <h2>💿 Quer instalar o Linux Mint?</h2>
-  <p>👉 <a href="./tutoriais/tutorial-linux-mint.html">Clique aqui para ver o tutorial completo de instalação</a></p>
+&lt;h2>📚 Referências&lt;/h2>
+  &lt;ul>
+    &lt;li>&lt;a href="[URL inválido removido]">Linux Mint Official Documentation&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="[URL inválido removido]">Ubuntu Manual&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="[URL inválido removido]">Kernel.org&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="[URL inválido removido]">GNU Project&lt;/a>&lt;/li>
+    &lt;li>&lt;em>How Linux Works&lt;/em> — Brian Ward&lt;/li>
+    &lt;li>&lt;em>The Linux Command Line&lt;/em> — William Shotts&lt;/li>
+  &lt;/ul>
 
-</body>
-</html>
+&lt;hr>
+
+&lt;h2>💿 Quer instalar o Linux Mint?&lt;/h2>
+  &lt;p>👉 &lt;a href="./tutoriais/tutorial-linux-mint.html">Clique aqui para ver o tutorial completo de instalação&lt;/a>&lt;/p>
+
+&lt;/body>
+&lt;/html>
